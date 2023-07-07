@@ -92,7 +92,9 @@
           const result = amount * rate;
           
           // 결과 업데이트
-          document.getElementById('result').innerHTML = `${amount} ${fromCurrency} = ${result.toFixed(2)} ${toCurrency}`;
+          const resultElement = document.getElementById('result');
+          resultElement.textContent = `${amount} ${fromCurrency} = ${result.toFixed(2)} ${toCurrency}`;
+          resultElement.style.display = 'block';
         })
         .catch(error => {
           console.error('Error:', error);
@@ -100,9 +102,7 @@
     }
     
     // 이벤트 핸들러 등록
-    window.addEventListener('DOMContentLoaded', () => {
-      document.getElementById('exchange-form').addEventListener('submit', calculateExchange);
-    });
+    document.getElementById('exchange-form').addEventListener('submit', calculateExchange);
   </script>
 </head>
 <body>
@@ -123,7 +123,7 @@
       <button type="submit">환율 계산</button>
     </form>
   
-    <div id="result"></div>
+    <div id="result" style="display: none;"></div>
   </div>
 </body>
 </html>
