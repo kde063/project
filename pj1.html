@@ -74,21 +74,21 @@
   </style>
   <script>
     // 환율 정보 API 엔드포인트
-    const apiUrl = 'https://v6.exchangerate-api.com/v6/22d64734567d92facc5c4de6/latest/USD';
+    const apiUrl = 'https://v6.exchangerate-api.com/v6/22d64734567d92facc5c4de6/latest/KRW';
     
     // 환율 계산
     function calculateExchange(event) {
       event.preventDefault();
       
       const amount = document.getElementById('amount').value;
-      const fromCurrency = document.getElementById('from-currency').value;
+      const fromCurrency = 'KRW'; // 기준 통화는 고정된 KRW
       const toCurrency = document.getElementById('to-currency').value;
       
       // 환율 정보 요청
-      fetch(apiUrl + fromCurrency)
+      fetch(apiUrl)
         .then(response => response.json())
         .then(data => {
-          const rate = data.rates[toCurrency];
+          const rate = data.conversion_rates[toCurrency];
           const result = amount * rate;
           
           // 결과 업데이트
@@ -111,17 +111,10 @@
       <label for="amount">금액:</label>
       <input type="number" id="amount" required>
       
-      <label for="from-currency">기준 통화:</label>
-      <select id="from-currency">
-        <option value="USD">미국 달러 (USD)</option>
-        <option value="EUR">유로 (EUR)</option>
-        <!-- 다른 통화 옵션들을 추가할 수 있습니다. -->
-      </select>
-      
       <label for="to-currency">목표 통화:</label>
       <select id="to-currency">
-        <option value="KRW">한국 원 (KRW)</option>
-        <option value="JPY">일본 엔 (JPY)</option>
+        <option value="USD">미국 달러 (USD)</option>
+        <option value="EUR">유로 (EUR)</option>
         <!-- 다른 통화 옵션들을 추가할 수 있습니다. -->
       </select>
       
