@@ -50,7 +50,6 @@
     // 통화 단위 가져오기
     function getCurrencyUnit(currency) {
       const currencyUnits = {
-        KRW: '₩',
         USD: '$',
         EUR: '€',
         JPY: '¥',
@@ -61,6 +60,7 @@
         CAD: '$',
         CHF: 'Fr',
         NZD: '$',
+        KRW: '₩', // 한국 원 추가
         // 다른 통화 단위들을 추가할 수 있습니다.
       };
       
@@ -89,7 +89,6 @@
       
       <label for="currency">기준/목표 통화:</label>
       <select id="currency">
-        <option value="KRW">대한민국 원 (KRW)</option>
         <option value="USD">미국 달러 (USD)</option>
         <option value="EUR">유로 (EUR)</option>
         <option value="JPY">일본 엔 (JPY)</option>
@@ -100,12 +99,12 @@
         <option value="CAD">캐나다 달러 (CAD)</option>
         <option value="CHF">스위스 프랑 (CHF)</option>
         <option value="NZD">뉴질랜드 달러 (NZD)</option>
+        <option value="KRW">대한민국 원 (KRW)</option> <!-- 한국 원 추가 -->
         <!-- 다른 통화 옵션들을 추가할 수 있습니다. -->
       </select>
       
       <label for="to-currency">목표 통화:</label>
       <select id="to-currency">
-        <option value="KRW">대한민국 원 (KRW)</option>
         <option value="USD">미국 달러 (USD)</option>
         <option value="EUR">유로 (EUR)</option>
         <option value="JPY">일본 엔 (JPY)</option>
@@ -116,6 +115,7 @@
         <option value="CAD">캐나다 달러 (CAD)</option>
         <option value="CHF">스위스 프랑 (CHF)</option>
         <option value="NZD">뉴질랜드 달러 (NZD)</option>
+        <option value="KRW">대한민국 원 (KRW)</option> <!-- 한국 원 추가 -->
         <!-- 다른 통화 옵션들을 추가할 수 있습니다. -->
       </select>
       
