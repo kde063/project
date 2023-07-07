@@ -100,7 +100,9 @@
     }
     
     // 이벤트 핸들러 등록
-    document.getElementById('exchange-form').addEventListener('submit', calculateExchange);
+    window.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('exchange-form').addEventListener('submit', calculateExchange);
+    });
   </script>
 </head>
 <body>
