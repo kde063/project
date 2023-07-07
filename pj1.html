@@ -50,6 +50,7 @@
     // 통화 단위 가져오기
     function getCurrencyUnit(currency) {
       const currencyUnits = {
+        KRW: '₩',
         USD: '$',
         EUR: '€',
         JPY: '¥',
@@ -88,6 +89,7 @@
       
       <label for="currency">기준/목표 통화:</label>
       <select id="currency">
+        <option value="KRW">대한민국 원 (KRW)</option>
         <option value="USD">미국 달러 (USD)</option>
         <option value="EUR">유로 (EUR)</option>
         <option value="JPY">일본 엔 (JPY)</option>
@@ -103,6 +105,7 @@
       
       <label for="to-currency">목표 통화:</label>
       <select id="to-currency">
+        <option value="KRW">대한민국 원 (KRW)</option>
         <option value="USD">미국 달러 (USD)</option>
         <option value="EUR">유로 (EUR)</option>
         <option value="JPY">일본 엔 (JPY)</option>
