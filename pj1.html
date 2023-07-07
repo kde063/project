@@ -26,14 +26,37 @@
           const rate = data.conversion_rates[toCurrency];
           const result = amount * rate;
           
+          // 단위 추가
+          const fromCurrencyUnit = '₩';
+          const toCurrencyUnit = getCurrencyUnit(toCurrency);
+          
           // 결과 업데이트
           const resultElement = document.getElementById('result');
-          resultElement.textContent = `${amount} ${fromCurrency} = ${result.toFixed(2)} ${toCurrency}`;
+          resultElement.textContent = `${amount} ${fromCurrencyUnit} = ${result.toFixed(2)} ${toCurrencyUnit}`;
           resultElement.style.display = 'block';
         })
         .catch(error => {
           console.error('Error:', error);
         });
+    }
+    
+    // 통화 단위 가져오기
+    function getCurrencyUnit(currency) {
+      const currencyUnits = {
+        USD: '$',
+        EUR: '€',
+        JPY: '¥',
+        CNY: '¥',
+        RUB: '₽',
+        GBP: '£',
+        AUD: '$',
+        CAD: '$',
+        CHF: 'Fr',
+        NZD: '$',
+        // 기타 통화 단위들을 추가할 수 있습니다.
+      };
+      
+      return currencyUnits[currency] || '';
     }
     
     document.addEventListener('DOMContentLoaded', () => {
@@ -54,6 +77,14 @@
       <select id="to-currency">
         <option value="USD">미국 달러 (USD)</option>
         <option value="EUR">유로 (EUR)</option>
+        <option value="JPY">일본 엔 (JPY)</option>
+        <option value="CNY">중국 위안 (CNY)</option>
+        <option value="RUB">러시아 루블 (RUB)</option>
+        <option value="GBP">영국 파운드 (GBP)</option>
+        <option value="AUD">호주 달러 (AUD)</option>
+        <option value="CAD">캐나다 달러 (CAD)</option>
+        <option value="CHF">스위스 프랑 (CHF)</option>
+        <option value="NZD">뉴질랜드 달러 (NZD)</option>
         <!-- 다른 통화 옵션들을 추가할 수 있습니다. -->
       </select>
       
