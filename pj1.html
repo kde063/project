@@ -8,12 +8,9 @@
     /* CSS 스타일을 추가할 수 있습니다. */
   </style>
   <script>
-    // 기준 통화 코드
-    const baseCurrency = 'KRW';
-
     // 환율 정보 API 엔드포인트
-    function getApiUrl(currency) {
-      return `https://v6.exchangerate-api.com/v6/22d64734567d92facc5c4de6/latest/${currency}`;
+    function getApiUrl(baseCurrency, targetCurrency) {
+      return `https://v6.exchangerate-api.com/v6/22d64734567d92facc5c4de6/latest/${baseCurrency}`;
     }
     
     // 환율 계산
@@ -21,10 +18,10 @@
       event.preventDefault();
       
       const amount = document.getElementById('amount').value;
-      const fromCurrency = baseCurrency;
+      const fromCurrency = document.getElementById('from-currency').value;
       const toCurrency = document.getElementById('to-currency').value;
       
-      const apiUrl = getApiUrl(fromCurrency);
+      const apiUrl = getApiUrl(fromCurrency, toCurrency);
       
       // 환율 정보 요청
       fetch(apiUrl)
@@ -79,6 +76,12 @@
     <form id="exchange-form">
       <label for="amount">금액:</label>
       <input type="number" id="amount" required>
+      
+      <label for="from-currency">기준 통화:</label>
+      <select id="from-currency">
+        <option value="KRW">대한민국 원 (KRW)</option>
+        <!-- 다른 기준 통화 옵션들을 추가할 수 있습니다. -->
+      </select>
       
       <label for="to-currency">목표 통화:</label>
       <select id="to-currency">
