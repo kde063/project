@@ -21,7 +21,7 @@
       event.preventDefault();
       
       const amount = document.getElementById('amount').value;
-      const fromCurrency = baseCurrency;
+      const fromCurrency = document.getElementById('currency').value;
       const toCurrency = document.getElementById('to-currency').value;
       
       const apiUrl = getApiUrl(fromCurrency, toCurrency);
@@ -74,7 +74,7 @@
     document.addEventListener('DOMContentLoaded', () => {
       // 이벤트 핸들러 등록
       document.getElementById('exchange-form').addEventListener('submit', calculateExchange);
-      document.getElementById('base-currency').addEventListener('change', changeBaseCurrency);
+      document.getElementById('currency').addEventListener('change', changeBaseCurrency);
     });
   </script>
 </head>
@@ -86,8 +86,8 @@
       <label for="amount">금액:</label>
       <input type="number" id="amount" required>
       
-      <label for="base-currency">기준 통화:</label>
-      <select id="base-currency">
+      <label for="currency">기준/목표 통화:</label>
+      <select id="currency">
         <option value="USD">미국 달러 (USD)</option>
         <option value="EUR">유로 (EUR)</option>
         <option value="JPY">일본 엔 (JPY)</option>
